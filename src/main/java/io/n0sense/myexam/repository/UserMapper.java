@@ -14,4 +14,8 @@ public interface UserMapper {
             @Result(property = "password", column = "password")
     })
     User findByUsername(@Param("username") String username);
+    @Insert("insert into user(username, password) values(#{username}, #{password})")
+    void save(User user);
+    @Select("select (count(*)>0) from user where username=#{username}")
+    boolean existsByUsername(@Param("username") String username);
 }

@@ -22,4 +22,19 @@ public class UserServiceImpl implements UserService {
             return false;
         } else return user.getPassword().equals(password);
     }
+
+    @Override
+    public boolean register(String username, String password) {
+        if (!userMapper.existsByUsername(username)) {
+            userMapper.save(
+                    User.builder()
+                            .username(username)
+                            .password(password)
+                            .build()
+            );
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

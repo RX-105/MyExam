@@ -38,4 +38,15 @@ public class UserController {
             return "login";
         }
     }
+
+    @PostMapping("/register")
+    public String registerNew(String username, String password, Model model) {
+        if (userService.register(username, password)) {
+            session.setAttribute("username", username);
+            return "redirect:list";
+        } else {
+            model.addAttribute("msg", "用户注册失败。");
+            return "regist";
+        }
+    }
 }

@@ -1,6 +1,6 @@
 <html>
 <body>
-<h2>Hello World!</h2>
-<h2>欸嘿</h2>
+<a href="login">LOGIN</a>
+<a href="register">REGISTER</a>
 </body>
 </html>
